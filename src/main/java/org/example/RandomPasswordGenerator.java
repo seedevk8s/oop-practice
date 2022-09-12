@@ -5,7 +5,7 @@ import org.passay.CharacterRule;
 import org.passay.EnglishCharacterData;
 import org.passay.PasswordGenerator;
 
-public class RandomPasswordGenerator {
+public class RandomPasswordGenerator implements PasswordGeneratePolicy {
     /**
      * Special characters allowed in password.
      */
