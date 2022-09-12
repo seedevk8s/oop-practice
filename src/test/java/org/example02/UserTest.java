@@ -23,7 +23,7 @@ class UserTest {
 
         // when
         //user.initPassword(new RandomPasswordGenerator());           // 이렇게 되는 경우 랜덤하게 패스워드가 생성됨 => 그결과가 적합 혹은 부적합 할수 있음
-        user.initPassword(new CorrectPasswordGenerator());            // 패스워드가 항상 8자리이므로 진행될것임.
+        user.initPassword(() -> "abcdefgh");            // 패스워드가 항상 8자리이므로 진행될것임.
 
         // then
         assertThat(user.getPassword()).isNotNull();
@@ -37,7 +37,7 @@ class UserTest {
 
         // when
         //user.initPassword(new RandomPasswordGenerator());           // 이렇게 되는 경우 랜덤하게 패스워드가 생성됨 => 그결과가 적합 혹은 부적합 할수 있음
-        user.initPassword(new WrongFixedPasswordGenerator());            // 패스워드가 항상 8자리이므로 진행될것임.
+        user.initPassword(() -> "ab");            // 패스워드가 항상 8자리이므로 진행될것임.
 
         // then
         assertThat(user.getPassword()).isNull();
